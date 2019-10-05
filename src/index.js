@@ -59,8 +59,9 @@ module.exports = function zeros(expression) {
         element % 25 !== 0
     ).length;
 
-    twFive = digit.filter(element => element % 25 == 0 && element % 100 !== 0)
-        .length;
+    twFive = digit.filter(
+        element => element % 25 == 0 && element % 100 !== 0 && element % 50 !== 0
+    ).length;
 
     two = digit.filter(
         element =>
@@ -70,7 +71,7 @@ module.exports = function zeros(expression) {
         element % 50 !== 0
     ).length;
 
-    zerocount = zerocount + chetArrHight + chetArrLow;
+    zerocount = zerocount + chetArrHight * 2 + chetArrLow;
     five = five + chetArrMid + twFive;
     console.log(zerocount, chetArrLow, chetArrMid);
 
@@ -80,7 +81,7 @@ module.exports = function zeros(expression) {
         zerocount = zerocount + five;
     }
     console.log(
-        digit.filter(element => element % 50 == 0 && element % 100 !== 0)
+        digit.filter(element => element % 10 == 0 && element % 100 !== 0)
     );
     console.log(zerocount, five, two, chetArrMid);
     return zerocount;
