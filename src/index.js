@@ -72,7 +72,7 @@ module.exports = function zeros(expression) {
 
     zerocount = zerocount + chetArrHight + chetArrLow + chetArrMid;
     five = five + chetArrMid + twFive;
-    console.log(zerocount);
+    console.log(zerocount, chetArrLow, chetArrMid);
 
     if (two < five) {
         zerocount = zerocount + two;
