@@ -70,7 +70,7 @@ module.exports = function zeros(expression) {
         element % 50 !== 0
     ).length;
 
-    zerocount = zerocount + chetArrHight + chetArrLow + chetArrMid;
+    zerocount = zerocount + chetArrHight + chetArrLow;
     five = five + chetArrMid + twFive;
     console.log(zerocount, chetArrLow, chetArrMid);
 
