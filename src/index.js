@@ -6,7 +6,7 @@ function factorialCh(n) {
     return n >= 1 ? n * factorialCh(n - 2) : 1;
 }
 
-function zeros(expression) {
+module.exports = function zeros(expression) {
     let m = 0;
     let numb = 0;
     let itog = 1;
@@ -29,7 +29,11 @@ function zeros(expression) {
         console.log(itog);
     });
     console.log(itog);
-
-    return itog;
-}
-console.log(zeros("9!!*10!!*7!!"));
+    while (itog % 10 == 0) {
+        zero++;
+        itog = itog / 10;
+        console.log(itog);
+    }
+    console.log(zero);
+    return zero;
+};
