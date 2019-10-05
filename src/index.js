@@ -80,4 +80,3 @@ module.exports = function zeros(expression) {
     console.log(zerocount, five, two);
     return zerocount;
 };
-zeros("100!*100!!");
