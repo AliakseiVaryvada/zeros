@@ -1,5 +1,4 @@
-//module.exports =
-function zeros(expression) {
+module.exports = function zeros(expression) {
     let m = 0;
     let numb = 0;
     let itog = 1;
@@ -80,5 +79,5 @@ function zeros(expression) {
     }
     console.log(zerocount, five, two);
     return zerocount;
-}
+};
 zeros("100!*100!!");
