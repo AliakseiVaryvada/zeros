@@ -80,9 +80,7 @@ module.exports = function zeros(expression) {
     } else {
         zerocount = zerocount + five;
     }
-    console.log(
-        digit.filter(element => element % 10 == 0 && element % 100 !== 0)
-    );
+    console.log(digit.filter(digit));
     console.log(zerocount, five, two, chetArrMid);
     return zerocount;
 };
