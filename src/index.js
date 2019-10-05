@@ -1,39 +1,81 @@
-function factorial(n) {
-    return n != 1 ? n * factorial(n - 1) : 1;
-}
-
-function factorialCh(n) {
-    return n >= 1 ? n * factorialCh(n - 2) : 1;
-}
-
 module.exports = function zeros(expression) {
     let m = 0;
     let numb = 0;
     let itog = 1;
     let mass = expression.split("*");
-    let fac = 1;
     let str = "";
-    let zero = 0;
+    let digit = [];
+    let chetArr = [];
+    let chetArrLow = 0;
+    let chetArrMid = 0;
+    let chetArrHight = 0;
+    let zerocount = 0;
+    let five = 0;
+    let two = 0;
+    let twFive = 0;
     mass.forEach(element => {
-        console.log(element);
+        let c = 1;
         m = element.match(/\!/g || []).length;
-        console.log(m);
         numb = +element.substring(0, element.length - m);
         if (m === 1) {
-            fac = factorial(numb);
+            while (c <= numb) {
+                //записываем все числа
+                digit.push(c);
+                c++;
+            }
         } else {
-            fac = factorialCh(numb);
+            if (numb % 2 == 0) {
+                while (c <= numb) {
+                    //записываем чётные числа
+                    if (c % 2 == 0) {
+                        digit.push(c);
+                    }
+                    c++;
+                }
+            } else {
+                while (c <= numb) {
+                    //записываем нечётные числа
+                    if (c % 2 != 0) {
+                        digit.push(c);
+                    }
+                    c++;
+                }
+            }
         }
-        itog = fac * itog;
-        fac = 0;
-        console.log(itog);
     });
-    console.log(itog);
-    while (itog % 10 == 0) {
-        zero++;
-        itog = itog / 10;
-        console.log(itog);
+    chetArrLow = digit.filter(element => element % 10 == 0 && element % 100 !== 0)
+        .length;
+    chetArrHight = digit.filter(element => element % 100 == 0).length;
+    chetArrMid = digit.filter(element => element % 50 == 0 && element % 100 !== 0)
+        .length;
+
+    five = digit.filter(
+        element =>
+        element % 5 == 0 &&
+        element % 100 !== 0 &&
+        element % 10 !== 0 &&
+        element % 25 !== 0
+    ).length;
+
+    twFive = digit.filter(element => element % 25 == 0 && element % 100 !== 0)
+        .length;
+
+    two = digit.filter(
+        element =>
+        element % 2 == 0 &&
+        element % 100 !== 0 &&
+        element % 10 !== 0 &&
+        element % 50 !== 0
+    ).length;
+
+    zerocount = zerocount + chetArrHight + chetArrLow + chetArrMid;
+    five = five + chetArrMid + twFive * 2;
+
+    if (two < five) {
+        zerocount = zerocount + two;
+    } else {
+        zerocount = zerocount + five;
     }
-    console.log(zero);
-    return zero;
+    console.log(zerocount, five, two);
+    return zerocount;
 };
