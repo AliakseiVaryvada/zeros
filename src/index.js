@@ -45,7 +45,9 @@ module.exports = function zeros(expression) {
     });
     chetArrLow = digit.filter(element => element % 10 == 0 && element % 100 !== 0)
         .length;
+
     chetArrHight = digit.filter(element => element % 100 == 0).length;
+
     chetArrMid = digit.filter(element => element % 50 == 0 && element % 100 !== 0)
         .length;
 
@@ -77,6 +79,6 @@ module.exports = function zeros(expression) {
     } else {
         zerocount = zerocount + five;
     }
-    console.log(zerocount, five, two);
+    console.log(zerocount, five, two, chetArrMid);
     return zerocount;
 };
